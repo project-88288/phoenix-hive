@@ -1,0 +1,110 @@
+{
+  "name": "hive-graph",
+  "version": "2.0.0",
+  "description": "GraphQL interface for Terra blockchain",
+  "author": "Terra Engineering <engineering@terra.money>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "serve": "nest start",
+    "dev": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint:ci": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --verbose --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "precommit": [
+    "lint:ci",
+    "test"
+  ],
+  "dependencies": {
+    "@nestjs/apollo": "^10.0.19",
+    "@nestjs/common": "^8.1.2",
+    "@nestjs/config": "^1.0.3",
+    "@nestjs/core": "^8.1.2",
+    "@nestjs/graphql": "10.0.21",
+    "@nestjs/platform-express": "^8.1.2",
+    "@nestjs/throttler": "^2.0.0",
+    "@terra-money/terra.js": "^3.1.5",
+    "@terra-money/terra.proto": "~2.0.0",
+    "apollo-server": "^3.5.0",
+    "apollo-server-express": "^3.4.0",
+    "axios": "^0.26.0",
+    "class-transformer": "0.4.0",
+    "class-validator": "^0.13.2",
+    "compression": "^1.7.4",
+    "graphql": "16.2.0",
+    "graphql-no-alias": "^3.0.3",
+    "graphql-type-json": "^0.3.2",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "nestjs-pino": "^2.6.0",
+    "pino": "^7.0.5",
+    "pino-http": "^7.1.0",
+    "pre-commit": "^1.2.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.1.4",
+    "@nestjs/schematics": "^8.0.4",
+    "@nestjs/testing": "^8.1.2",
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.13",
+    "@types/hpp": "^0.2.2",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "27.3.1",
+    "pino-pretty": "^7.1.0",
+    "prettier": "^2.4.1",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.4",
+    "webpack": "^5.73.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s",
+      "!**/*.module.ts",
+      "!env.validation.ts",
+      "!main.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "<rootDir>/../test/jest-setup.ts"
+    ],
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/$1"
+    }
+  }
+}
