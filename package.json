@@ -1,5 +1,5 @@
 {
-  "name": "terra-hive",
+  "name": "@project-88288/terra-hive",
   "version": "1.0.0",
   "description": "Modules for Terra blockchain from hive-graph",
   "author": "Terra Engineering <engineering@terra.money>",
